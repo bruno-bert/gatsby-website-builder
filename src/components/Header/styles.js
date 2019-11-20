@@ -10,11 +10,10 @@ export const HeaderWrapper = styled.div`
  transition: 0.3s;
  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
-
- /**
+ 
  .hide-mobile {
      display: none
- }  */
+ } 
 
  .menu-icon {
      margin-top: 35%;

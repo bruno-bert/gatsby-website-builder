@@ -11,6 +11,24 @@ export const metaData = graphql`
             description
             href
         }
+        sections {
+          id
+          type
+          hero {
+            title
+            subTitle
+            backgroundImage
+            callToAction {
+              text
+              href
+            }
+            videoBox {
+              backgroundImage
+              buttonImage
+              href
+            }
+          }
+        }
     }
   }
 `

@@ -1,13 +1,16 @@
 import React from "react"
 import { HeroWrapper } from "./styles"
 
-export default function Hero() {
+
+export default function Hero( props ) {
+
+  const heroId = 'hero'
+  const [ meta ] = props.metadata.site.siteMetadata.sections.filter( (section) => section.type === heroId  )
+
   return (
     <HeroWrapper>
-      <h1>Lorem ipsum</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, iure!
-      </p>
+      <h1>{ meta.hero.title }</h1>
+      <p>{ meta.hero.subTitle }</p>
     </HeroWrapper>
   )
 }

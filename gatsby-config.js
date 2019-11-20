@@ -1,23 +1,12 @@
+const cms = require('./cms')
 module.exports = {
+  
   siteMetadata: {
     title: `Gatsby Website Builder`,
     description: `This starter helps to create websites from content on Content Management Systems.`,
     author: `Bruno Bertoni de Paula`,
     
-    /** temporary properties until the cms is implemented
-     * in future, this will be pulled from cms 
-     */
-    theme: `light`,
-
-    links: [
-      { id: 'home',  'description': 'Home', href: '#home'},
-      { id: 'missao', 'description': 'Missão', href: '#missao'},
-      { id: 'sobre', 'description': 'Sobre', href: '#sobre'},
-      { id: 'problema', 'description': 'Problema', href: '#problema'},
-      { id: 'aplicacao', 'description': 'Aplicação do Cliente', href: '#aplicacao'},
-      { id: 'recursos', 'description': 'Recursos', href: '#recursos'},
-      { id: 'roadmap', 'description': 'Roadmap', href: '#roadmap'},
-    ]
+    ...cms
 
   },
   plugins: [

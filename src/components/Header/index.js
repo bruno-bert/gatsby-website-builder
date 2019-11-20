@@ -5,18 +5,21 @@ import { Link } from "gatsby"
 
 export default function Header( props ) {
   
-  console.log('data', props.metadata)
   const links = props.metadata.site.siteMetadata.links
  
   return (
     <HeaderWrapper>
       
-        <Image className="logo" alt="logo"
-        src="landing/logo.png" optimized />
+        <Image 
+        className="logo" 
+        alt="logo"
+        src="landing/logo.png" 
+        optimized />
         
         <a href="#" class="hide-desktop">
           <Image 
-            className="menu-icon" alt="toggle menu" 
+            className="menu-icon" 
+            alt="toggle menu" 
             src="landing/ham.png" 
             optimized />         
         </a>
@@ -24,7 +27,7 @@ export default function Header( props ) {
         <nav class="show-desktop hide-mobile">
           <ul>
             { links.map( link => (
-              <li>
+              <li key={link.id}>
                 <Link to={link.href}>{link.description}</Link>
               </li>
              ) )}
