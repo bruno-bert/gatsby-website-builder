@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import { useImages } from "../hooks/use-images"
 
@@ -14,10 +15,23 @@ import { useImages } from "../hooks/use-images"
  */
 
 
-const Image = ({ src }) => {
+const Image = ( { src, className, alt, srcObject, optimized } ) => {
   const data = useImages()
   const [ img ] = data.images.nodes.filter( (img) => img.relativePath === src ) 
-  return <Img fixed={img.childImageSharp.fixed} />
+  if (optimized)
+   return <Img  className={className} alt={alt}  fixed={img.childImageSharp.fixed} /> 
+  else 
+   return <img class={className} alt={alt} src={srcObject} /> 
 }
+
+Image.defaultProps = {
+  optimized: false
+}
+
+Image.propTypes = {
+  optimized: PropTypes.bool,
+  src: PropTypes.string.isRequired
+}
+
 
 export default Image

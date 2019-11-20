@@ -2,37 +2,36 @@ import React from "react"
 import { HeaderWrapper } from "./styles"
 import Image from "../image"
 import { Link } from "gatsby"
-export default function Header() {
+
+export default function Header( props ) {
+  
+  console.log('data', props.metadata)
+  const links = props.metadata.site.siteMetadata.links
+ 
   return (
     <HeaderWrapper>
-      <div>
-        <Image src="landing/logo.png" />
-        <nav>
+      
+        <Image className="logo" alt="logo"
+        src="landing/logo.png" optimized />
+        
+        <a href="#" class="hide-desktop">
+          <Image 
+            className="menu-icon" alt="toggle menu" 
+            src="landing/ham.png" 
+            optimized />         
+        </a>
+
+        <nav class="show-desktop hide-mobile">
           <ul>
-            <li>
-              <Link to="#">Home</Link>
-            </li>
-            <li>
-              <Link to="#">Missão</Link>
-            </li>
-            <li>
-              <Link to="#">Sobre</Link>
-            </li>
-            <li>
-              <Link to="#">Problema</Link>
-            </li>
-            <li>
-              <Link to="#">Aplicação do Cliente</Link>
-            </li>
-            <li>
-              <Link to="#">Recursos</Link>
-            </li>
-            <li>
-              <Link to="#">Roadmap</Link>
-            </li>
+            { links.map( link => (
+              <li>
+                <Link to={link.href}>{link.description}</Link>
+              </li>
+             ) )}
+           
           </ul>
         </nav>
-      </div>
+      
     </HeaderWrapper>
   )
 }

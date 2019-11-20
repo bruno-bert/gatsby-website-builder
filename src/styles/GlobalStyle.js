@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
 @import url("${props => props.theme.typography.fontUrl}");
 
 html {
- font-family: ${props => props.theme.typography.fontFamily};
+ font-family: ${props => props.theme.typography.fontFamily}, sans-serif;
 }
 
    
